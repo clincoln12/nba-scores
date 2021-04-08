@@ -1,0 +1,33 @@
+.game-box {
+
+  border: 1px solid #6d6868;
+  width: max-content;
+  padding: 0.25em 0.5em;
+
+  .game-box-status {
+
+    font-weight: 600;
+    font-size: 0.75em;
+    padding-bottom: 0.75em;
+  }
+
+  .game-box-team-score {
+
+    display: flex;
+    font-size: 0.875em;
+
+    .game-box-team-score-image-wrapper {
+      padding-right: 0.75em;
+
+      img {
+  
+        width: 20px;
+      }
+    }
+
+    .game-box-team-score-name {
+
+      padding-right: 0.75em;
+    }
+  }
+}
