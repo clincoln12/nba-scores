@@ -11,6 +11,12 @@ const mapStateToProps = (state) => {
 }
 
 class ScoreBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { games: { date_04082021: [{game_id: 1, team: 'atl'}]} }
+  }
+
   render() {
     return(
       <div>

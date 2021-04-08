@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :update, :destroy]
+  before_action :set_cors_headers
 
   # GET /games
   def index
@@ -47,5 +48,13 @@ class GamesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def game_params
       params.require(:game).permit(:game_time, :home_team_id, :away_team_id, :home_team_score, :away_team_score, :api_game_id, :status)
+    end
+
+    def set_cors_headers
+      response.set_header "Access-Control-Allow-Origin", origin
+    end
+  
+    def origin
+      request.headers["Origin"] || "*"
     end
 end
