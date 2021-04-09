@@ -3,15 +3,41 @@ import { connect } from 'react-redux';
 import GameBox from './GameBox';
 
 class GameBoxesContainer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  whatToRender() {
+    if (this.props.games.loading) {
+      return (
+        <div>
+          Loading...
+        </div>
+      )
+    }
+
+    if (Array.isArray(this.props.games)) {
+      return this.props.games.map((g) => (
+        <GameBox 
+          key={g.id}
+          game={g}
+        />
+      ))
+    }
+  }
+
   render() {
     return(
-      <GameBox />
+      <div>
+        {this.whatToRender()}
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  selectedDate: state.selectedDate
+  scoresDate: state.scoresDate,
+  games: state.games
 })
 
 export default connect(mapStateToProps)(GameBoxesContainer)

@@ -1,24 +1,29 @@
+import moment from 'moment';
 import React from 'react';
 import './stylesheets/game-box.scss';
 
 export default class GameBox extends React.Component {
   render() {
+    {console.log(this.props.game)}
     return(
       <div className="game-box">
         <div className="game-box-status">
-           Final 
+          {this.props.game.status == 'Scheduled' ? 
+            moment(this.props.game.game_time).format('h:mm a') : 
+           'Final'
+          }
         </div>
 
         <GameBoxTeam 
-          logoUrl="https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Philadelphia_76ers_logo.svg/1200px-Philadelphia_76ers_logo.svg.png"
-          teamName="PHI"
-          score="106"
+          logoUrl={this.props.game.away_team.logo}
+          teamName={this.props.game.away_team.short_name}
+          score={this.props.game.away_team_score}
         />
 
         <GameBoxTeam 
-          logoUrl="https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Boston_Celtics.svg/1200px-Boston_Celtics.svg.png"
-          teamName="BOS"
-          score="96"
+          logoUrl={this.props.game.home_team.logo}
+          teamName={this.props.game.home_team.short_name}
+          score={this.props.game.home_team_score}
         />
       </div>
     )
