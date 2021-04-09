@@ -4,7 +4,11 @@ class GamesController < ApplicationController
 
   # GET /games
   def index
-    @games = Game.all
+    if params[:date]
+      @games = Game.where(game_time: Date.today.in_time_zone('America/New_York').all_day)
+    else
+      @games = Game.all
+    end
 
     render json: @games
   end
