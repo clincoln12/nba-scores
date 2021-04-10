@@ -1,14 +1,48 @@
 class NbaApiService
   API_URL = 'https://api-nba-v1.p.rapidapi.com'
 
-  def seed(year)
-    # Get all teams available + all games for a year, and create a representation of them in our own database
+  def process_and_refresh_all_games_in_database
+    games = get_all_games_in_season(2020)
+
+    db_all_unfinished_games = Game.all.where.not(status: 'Finished')
+    # Limit the search to unfinished games and make only one database call
+    # To be more efficient
+
+    games.each do |g|
+      puts "Checking game with id #{g['gameId']}"
+
+      db_game = db_all_unfinished_games.find_by(api_game_id: g['gameId'])
+
+      puts 'Game is not in unfinished games.' unless db_game
+      next unless db_game
+
+      puts "Now processing unfinished game #{g['gameId']}"
+
+      unless db_game.home_team_score == g['hTeam']['score']['points'] ||
+        db_game.away_team_score == g['vTeam']['score']['points'] ||
+        db_game.status == g['statusGame']
+
+        db_game.update({
+          home_team_score: g['hTeam']['score']['points'],
+          away_team_score: g['vTeam']['score']['points'],
+          status: g['statusGame']
+        })
+      end
+    end
+  end
+
+  def get_all_games_in_season(year)
     conn = connection("games/seasonYear/#{year}")
     response = conn.get
 
     parsed_response = JSON.parse(response.body)
 
     games = parsed_response['api']['games']
+  end
+
+  def seed(year)
+    # Get all teams available + all games for a year, and create a representation of them in our own database
+    games = get_all_games_in_season(year)
 
     seed_database_from_api_response(games)
   end
