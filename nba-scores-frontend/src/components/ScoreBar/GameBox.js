@@ -1,10 +1,10 @@
 import moment from 'moment';
 import React from 'react';
+import { GameBoxTeam } from './GameBoxTeam';
 import './stylesheets/game-box.scss';
 
 export default class GameBox extends React.Component {
   render() {
-    {console.log(this.props.game)}
     return(
       <div className="game-box">
         <div className="game-box-status">
@@ -30,20 +30,3 @@ export default class GameBox extends React.Component {
   }
 }
 
-const GameBoxTeam = (props) => {
-  return(
-    <div className="game-box-team-score">
-      <div className="game-box-team-score-image-wrapper">
-        <img src={props.logoUrl} />
-      </div>
-
-      <div className="game-box-team-score-name">
-        {props.teamName}
-      </div>
-
-      <div>
-        {props.score}
-      </div>
-    </div>
-  )
-}

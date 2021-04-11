@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import GameBox from './GameBox';
 
 class GameBoxesContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   whatToRender() {
     if (this.props.games.loading) {

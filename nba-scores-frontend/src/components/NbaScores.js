@@ -1,11 +1,18 @@
 import React from 'react';
 import ScoreBar from './ScoreBar/ScoreBar';
+import { Route, Switch } from 'react-router-dom';
 
 export default class NbaScores extends React.Component {
   render() {
     return(
       <div>
-        <ScoreBar />
+        <Switch>
+           <Route path="/" component={ScoreBar} exact />
+           
+           <Route component={() => (
+             <div>Invalid path. Please go to a valid link.</div>
+           )}/>
+        </Switch>
       </div>
     )
   }

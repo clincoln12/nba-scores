@@ -5,10 +5,6 @@ import { connect } from 'react-redux';
 import RefreshGamesButton from '../Shared/RefreshGamesButton';
 
 class ScoreBar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return(
       <div>
