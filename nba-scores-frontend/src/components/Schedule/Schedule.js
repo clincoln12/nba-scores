@@ -20,7 +20,7 @@ class Schedule extends React.Component {
     for (const date in this.props.schedule) {
       console.log(this.props.schedule[date][0])
       let gameDivs = this.props.schedule[date].map((game) => (
-        <div>
+        <div key={game.id}>
           <div>
             {game['away_team']['full_name']} at {game['home_team']['full_name']}
           </div>

@@ -1,6 +1,22 @@
 import { Link } from 'react-router-dom';
 
 export const GameBoxTeam = (props) => {
+  const teamName = () => {
+    if (props.winning) {
+      return <strong>{props.teamName}</strong>
+    } else {
+      return props.teamName
+    }
+  }
+
+  const score = () => {
+    if (props.winning) {
+      return <strong>{props.score}</strong>
+    } else {
+      return props.score
+    }
+  }
+
   return(
     <div className="game-box-team-score">
       <div className="game-box-team-score-image-wrapper">
@@ -9,12 +25,12 @@ export const GameBoxTeam = (props) => {
 
       <div className="game-box-team-score-name">
         <Link to={`/team?id=${props.teamId}`}>
-           {props.teamName}
+           {teamName()}
         </Link>
       </div>
 
       <div>
-        {props.score}
+        {score()}
       </div>
     </div>
   )
