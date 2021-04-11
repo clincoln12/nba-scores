@@ -8,7 +8,7 @@ export default class GameBox extends React.Component {
     return(
       <div className="game-box">
         <div className="game-box-status">
-          {this.props.game.status == 'Scheduled' ? 
+          {this.props.game.status === 'Scheduled' ? 
             moment(this.props.game.game_time).format('h:mm a') : 
            'Final'
           }
