@@ -3,7 +3,7 @@ import React from 'react';
 export default class RefreshGamesButton extends React.Component {
   refreshApiCall() {
     fetch('http://localhost:6969/games/all', {
-      method: 'PATCH'
+      method: 'PUT'
     })
     .then(response => response.json())
     .then(json => json.success ? window.location.reload() : null)
