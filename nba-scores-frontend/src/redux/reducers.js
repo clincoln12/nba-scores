@@ -1,8 +1,8 @@
 import moment from "moment";
 
 export const initialState = {
-  games: [],
-  schedule: [],
+  games: { loading: true },
+  schedule: { loading: true },
   scoresDate: moment().format('YYYY-MM-DD')
 };
 
