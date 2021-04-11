@@ -4,21 +4,12 @@ class GamesController < ApplicationController
   def index
     if params[:date]
       games = Game.where(game_time: params[:date].to_date.in_time_zone('America/New_York').all_day)
-
-      games.select(:id, :game_time, :home_team_score, :away_team_score, :status, :home_team_id, :away_team_id)
-
-      games = games.map do |g|
-        home_team = g.home_team.attributes.slice('short_name', 'logo')
-        away_team = g.away_team.attributes.slice('short_name', 'logo')
-
-        g.attributes.merge({ home_team: home_team, away_team: away_team })
-      end
       
-      return render json: games
+      return render json: games.map(&:attributes_with_team_data)
 
     elsif params[:team_id]
       team = Team.find(params[:team_id])
-      games = team.home_games + team.away_games
+      games = team.all_games_with_team_data
 
       return render json: { team: team, games: games }
     end
