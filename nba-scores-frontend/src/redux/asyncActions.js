@@ -1,4 +1,20 @@
-import { fetchScheduleError, fetchSchedulePending, fetchScheduleSuccess, fetchGamesError, fetchGamesPending, fetchGamesSuccess } from './actions';
+import { fetchTeamGamesPending, fetchTeamGamesSuccess, fetchTeamGamesError, fetchScheduleError, fetchSchedulePending, fetchScheduleSuccess, fetchGamesError, fetchGamesPending, fetchGamesSuccess } from './actions';
+
+export const fetchTeamGames = (teamId) => {
+  return function (dispatch) {
+    dispatch(fetchTeamGamesPending())
+
+    fetch(`http://localhost:6969/teams/${teamId}/games`)
+      .then(response => response.json())
+      .then(result => {
+        if (result.error) {
+          return (dispatch(fetchTeamGamesError(result.error)))
+        }
+
+        dispatch(fetchTeamGamesSuccess(result))
+      })
+  }
+}
 
 export const fetchSchedule = () => {
   return function (dispatch) {

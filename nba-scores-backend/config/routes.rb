@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :games, only: [:index, :update]
-  resources :teams
+  resources :teams do 
+    resources :games, only: [:index]
+  end
   resource :schedule, only: [:show] 
   # Using resource instead of resources, because there's only one at any given time
 

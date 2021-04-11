@@ -26,6 +26,20 @@ export const fetchScheduleError = (error) => ({
   error: error
 })
 
+export const fetchTeamGamesPending = () => ({
+  type: 'FETCH_TEAM_GAMES_PENDING'
+})
+
+export const fetchTeamGamesSuccess = (teamGames) => ({
+  type: 'FETCH_TEAM_GAMES_SUCCESS',
+  teamGames: teamGames
+})
+
+export const fetchTeamGamesError = (error) => ({
+  type: 'FETCH_TEAM_GAMES_ERROR',
+  error: error
+})
+
 export const setScoresDate = (scoresDate) => ({
   type: 'SET_SCORES_DATE',
   scoresDate: scoresDate

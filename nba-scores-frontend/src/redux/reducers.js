@@ -3,7 +3,8 @@ import moment from "moment";
 export const initialState = {
   games: { loading: true },
   schedule: { loading: true },
-  scoresDate: moment().format('YYYY-MM-DD')
+  teamGames: { loading: true },
+  scoresDate: moment().format('YYYY-MM-DD'),
 };
 
 const nbaScoresReducer = (state = initialState, action) => {
@@ -27,6 +28,15 @@ const nbaScoresReducer = (state = initialState, action) => {
 
     case 'FETCH_SCHEDULE_ERROR':
       return ({ ...state, schedule: action.error })
+
+    case 'FETCH_TEAM_GAMES_PENDING':
+      return ({ ...state, teamGames: { loading: true } })
+
+    case 'FETCH_TEAM_GAMES_SUCCESS':
+      return ({ ...state, teamGames: action.teamGames })
+
+    case 'FETCH_TEAM_GAMES_ERROR':
+      return ({ ...state, teamGames: action.error })
 
     case 'SET_SCORES_DATE':
       return ({ ...state, scoresDate: action.scoresDate })

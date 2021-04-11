@@ -7,17 +7,23 @@ class GamesController < ApplicationController
 
       games.select(:id, :game_time, :home_team_score, :away_team_score, :status, :home_team_id, :away_team_id)
 
-      @games = games.map do |g|
+      games = games.map do |g|
         home_team = g.home_team.attributes.slice('short_name', 'logo')
         away_team = g.away_team.attributes.slice('short_name', 'logo')
 
         g.attributes.merge({ home_team: home_team, away_team: away_team })
       end
-    else
-      @games = Game.all
+      
+      return render json: games
+
+    elsif params[:team_id]
+      team = Team.find(params[:team_id])
+      games = team.home_games + team.away_games
+
+      return render json: { team: team, games: games }
     end
 
-    render json: @games
+    render json: { error: true }
   end
  
   def update
