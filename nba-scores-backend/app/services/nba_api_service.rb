@@ -18,9 +18,9 @@ class NbaApiService
 
       puts "Now processing unfinished game #{g['gameId']}"
 
-      unless db_game.home_team_score == g['hTeam']['score']['points'] ||
-        db_game.away_team_score == g['vTeam']['score']['points'] ||
-        db_game.status == g['statusGame']
+      if db_game.home_team_score != g['hTeam']['score']['points'] ||
+        db_game.away_team_score != g['vTeam']['score']['points'] ||
+        db_game.status != g['statusGame']
 
         db_game.update({
           home_team_score: g['hTeam']['score']['points'],
