@@ -2,6 +2,7 @@ import React from 'react';
 import GameBoxesContainer from './GameBoxesContainer';
 import ScoreBarDateDropdown from './ScoreBarDateDropdown';
 import { connect } from 'react-redux';
+import RefreshGamesButton from '../Shared/RefreshGamesButton';
 
 class ScoreBar extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class ScoreBar extends React.Component {
       <div>
         <ScoreBarDateDropdown />
         <GameBoxesContainer />
+        <RefreshGamesButton />
       </div>
     )
   }
