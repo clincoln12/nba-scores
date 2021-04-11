@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const GameBoxTeam = (props) => {
   return(
     <div className="game-box-team-score">
@@ -6,7 +8,9 @@ export const GameBoxTeam = (props) => {
       </div>
 
       <div className="game-box-team-score-name">
-        {props.teamName}
+        <Link to={`/team?id=${props.teamId}`}>
+           {props.teamName}
+        </Link>
       </div>
 
       <div>

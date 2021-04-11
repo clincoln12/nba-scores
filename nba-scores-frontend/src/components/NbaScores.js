@@ -10,6 +10,7 @@ export default class NbaScores extends React.Component {
         <Switch>
            <Route path="/" component={ScoreBar} exact />
            <Route path="/schedule" component={Schedule} />
+           <Route path="/team" />
            <Route component={() => (
              <div>Invalid path. Please go to a valid link.</div>
            )}/>
