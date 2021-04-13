@@ -1,0 +1,25 @@
+.button {
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin: auto;
+  display: block;
+  position: relative;
+  top: 15px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.button-refresh {
+  background-color: white;
+  color: #48494a;
+  border: 1px solid #cbccce;
+}
+
+.button-refresh:hover {
+  background-color: #48494a;
+  color: white;
+}

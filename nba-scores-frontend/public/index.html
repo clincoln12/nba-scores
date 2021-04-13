@@ -24,10 +24,20 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <link rel="stylesheet" href="index.css">
     <title>NBA Scores</title>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  <body style="background-color: #edeef0";>
+
+  <div className="nav-bar">
+    <nav>
+      <ul class="menuItems">
+        <li><a href='/' data-item='Home'>Home</a></li>
+        <li><a href='/schedule' data-item='Schedule'>Schedule</a></li>
+      </ul>
+  </div>
+
+</section>
     <div id="root"></div>
   </body>
 </html>

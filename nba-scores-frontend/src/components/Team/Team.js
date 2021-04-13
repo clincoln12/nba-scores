@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { fetchTeamGames } from '../../redux/asyncActions';
+import './stylesheets/team.scss';
 
 class Team extends React.Component {
   constructor(props) {
@@ -25,17 +26,17 @@ class Team extends React.Component {
     if (this.props.teamGames.team) {
       return(
         <div>
-          <div>
-            <h1>{this.props.teamGames.team.full_name}</h1>
+          <div className="team-schedule-header">
+            <h2>{this.props.teamGames.team.full_name}</h2>
           </div>
 
           <div>
             {this.props.teamGames.games.map((game) => (
-            <div key={game.id}>
-              {game.home_team.full_name} {game.home_team_score} 
+            <div key={game.id} className="team-schedule-game">
+              <img src={game.home_team.logo} /> {game.home_team.full_name} {game.home_team_score} 
               &nbsp;-&nbsp; 
-              {game.away_team_score} {game.away_team.full_name}
-              &nbsp; {moment(game.game_time).format('MMM DD')}
+              {game.away_team_score} {game.away_team.full_name} <img src={game.away_team.logo} /> 
+              &nbsp; [{moment(game.game_time).format('MMM DD')}]
             </div>
             ))}
           </div>
@@ -46,7 +47,7 @@ class Team extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="team-schedule-container">
         {this.whatToRender()}
       </div>
     )

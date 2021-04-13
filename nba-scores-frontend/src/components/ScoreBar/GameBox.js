@@ -6,7 +6,7 @@ import './stylesheets/game-box.scss';
 export default class GameBox extends React.Component {
   statusText() {
     if (this.props.game.status === 'Scheduled') {
-      return moment(this.props.game.game_time).format('h:mm a')
+      return moment(this.props.game.game_time).format('h:mm A')
     }
 
     if (this.props.game.status === 'Finished') {

@@ -1,4 +1,5 @@
 import React from 'react';
+import './stylesheets/refresh-button.scss';
 
 export default class RefreshGamesButton extends React.Component {
   refreshApiCall() {
@@ -12,7 +13,7 @@ export default class RefreshGamesButton extends React.Component {
   render() {
     return(
       <div>
-        <button onClick={this.refreshApiCall}>Refresh all games</button>
+        <button class="button button-refresh" onClick={this.refreshApiCall}>Update Scores</button>
       </div>
     )
   }

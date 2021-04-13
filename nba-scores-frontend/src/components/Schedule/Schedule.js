@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { fetchSchedule } from '../../redux/asyncActions';
+import './stylesheets/schedule.scss';
 
 class Schedule extends React.Component {
   constructor(props) {
@@ -21,22 +22,18 @@ class Schedule extends React.Component {
       console.log(this.props.schedule[date][0])
       let gameDivs = this.props.schedule[date].map((game) => (
         <div key={game.id}>
-          <div>
-            {game['away_team']['full_name']} at {game['home_team']['full_name']}
-          </div>
-
-          <div>
-          {moment(game['game_time']).format('h:mm a')}
+          <div className="league-schedule-game">
+            <img src={game.away_team.logo} /> {game['away_team']['full_name']} at <img src={game.home_team.logo} /> {game['home_team']['full_name']} [{moment(game['game_time']).format('h:mm a')}]
           </div>
         </div>
       ))
 
       scheduleDates.push(
           <div key={date}>
-            <div>
-              <h1>
+            <div className="league-schedule-header">
+              <h2>
               {moment(date).format('dddd, MMM DD')}
-              </h1>
+              </h2>
             </div>
 
             {gameDivs}
@@ -49,7 +46,7 @@ class Schedule extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="league-schedule-container">
         {this.whatToRender()}
       </div>
     )

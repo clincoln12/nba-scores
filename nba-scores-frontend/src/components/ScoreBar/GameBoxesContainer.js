@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GameBox from './GameBox';
+import './stylesheets/game-box-container.scss';
 
 class GameBoxesContainer extends React.Component {
 
@@ -25,7 +26,7 @@ class GameBoxesContainer extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="game-box-container">
         {this.whatToRender()}
       </div>
     )

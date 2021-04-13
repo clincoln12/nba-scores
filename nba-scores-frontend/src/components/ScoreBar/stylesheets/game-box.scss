@@ -1,7 +1,7 @@
 .game-box {
 
-  border: 1px solid #6d6868;
-  width: max-content;
+  /* border: 1px solid #6d6868; */
+  /* width: max-content; */
   padding: 0.25em 0.5em;
 
   .game-box-status {
@@ -9,6 +9,7 @@
     font-weight: 600;
     font-size: 0.75em;
     padding-bottom: 0.75em;
+    border-top: #dcdddf 1px dotted;
   }
 
   .game-box-team-score {
@@ -28,6 +29,26 @@
     .game-box-team-score-name {
 
       padding-right: 0.75em;
+
+      a {
+        color: black;
+        font-family: helvetica;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      
+      a:active {
+        color: black;
+      }
+      
+      a:visited {
+        color: black;
+      }
     }
   }
 }

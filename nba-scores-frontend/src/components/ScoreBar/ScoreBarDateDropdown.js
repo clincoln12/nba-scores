@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { setScoresDate } from '../../redux/actions';
 import { fetchGames } from '../../redux/asyncActions';
+import './stylesheets/date-dropdown.scss';
 
 class ScoreBarDateDropdown extends React.Component {
   componentDidMount() {

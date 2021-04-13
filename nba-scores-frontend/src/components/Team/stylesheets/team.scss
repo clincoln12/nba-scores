@@ -1,0 +1,21 @@
+.team-schedule-container {
+  background-color: white;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.team-schedule-game {
+  border-top: #dcdddf 1px dotted;
+  padding: 5px;
+  text-align: center;
+
+  img {
+    width: 15px;
+  }
+}
+
+.team-schedule-header {
+  padding-bottom: 20px;
+}
