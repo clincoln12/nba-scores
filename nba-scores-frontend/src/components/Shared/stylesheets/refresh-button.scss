@@ -11,15 +11,54 @@
   top: 15px;
   font-weight: bold;
   border-radius: 20px;
+  outline: none;
 }
 
 .button-refresh {
   background-color: white;
   color: #48494a;
   border: 1px solid #cbccce;
+
+  &:hover {
+    background-color: #48494a;
+    color: white;
+  }
 }
 
-.button-refresh:hover {
-  background-color: #48494a;
-  color: white;
+// Loading bar i found online
+
+.lds-ring {
+  margin: 0 auto;
+  padding-top: 3em;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #343434;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #343434 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

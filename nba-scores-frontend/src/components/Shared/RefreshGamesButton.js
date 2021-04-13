@@ -1,9 +1,20 @@
 import React from 'react';
+import { LoadingCircle } from './LoadingCircle';
 import './stylesheets/refresh-button.scss';
 
 export default class RefreshGamesButton extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { loading: false }
+    this.refreshApiCall = this.refreshApiCall.bind(this);
+  }
+
   refreshApiCall() {
-    fetch('http://localhost:6969/games/all', {
+    this.setState( { loading: true })
+    document.getElementById('refresh-button').innerText = 'Please wait...'
+
+    fetch('http://localhost:3001/games/all', {
       method: 'PUT'
     })
     .then(response => response.json())
@@ -13,7 +24,8 @@ export default class RefreshGamesButton extends React.Component {
   render() {
     return(
       <div>
-        <button class="button button-refresh" onClick={this.refreshApiCall}>Update Scores</button>
+        <button id="refresh-button" class="button button-refresh" onClick={this.refreshApiCall}>Update Scores</button>
+        {this.state.loading ? <LoadingCircle /> : null}
       </div>
     )
   }

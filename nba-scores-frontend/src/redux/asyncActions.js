@@ -4,7 +4,7 @@ export const fetchTeamGames = (teamId) => {
   return function (dispatch) {
     dispatch(fetchTeamGamesPending())
 
-    fetch(`http://localhost:6969/teams/${teamId}/games`)
+    fetch(`http://localhost:3001/teams/${teamId}/games`)
       .then(response => response.json())
       .then(result => {
         if (result.error) {
@@ -20,7 +20,7 @@ export const fetchSchedule = () => {
   return function (dispatch) {
     dispatch(fetchSchedulePending())
 
-    fetch(`http://localhost:6969/schedule`)
+    fetch(`http://localhost:3001/schedule`)
       .then(response => response.json())
       .then(result => {
         if (result.error) {
@@ -36,7 +36,7 @@ export const fetchGames = (date) => {
   return function (dispatch) {
     dispatch(fetchGamesPending())
 
-    fetch(`http://localhost:6969/games?date=${date}`)
+    fetch(`http://localhost:3001/games?date=${date}`)
       .then(response => response.json())
       .then(result => {
         if (result.error) {

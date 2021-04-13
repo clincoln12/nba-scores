@@ -31,7 +31,6 @@ export default class GameBox extends React.Component {
   }
 
   render() {
-    console.log(this.props.game)
     return(
       <div className="game-box">
         <div className="game-box-status">
