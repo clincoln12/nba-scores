@@ -1,7 +1,6 @@
 import React from 'react';
 import GameBoxesContainer from './GameBoxesContainer';
 import ScoreBarDateDropdown from './ScoreBarDateDropdown';
-import { connect } from 'react-redux';
 import RefreshGamesButton from '../Shared/RefreshGamesButton';
 
 class ScoreBar extends React.Component {
@@ -16,4 +15,4 @@ class ScoreBar extends React.Component {
   }
 }
 
-export default connect()(ScoreBar);
+export default ScoreBar;

@@ -5,6 +5,7 @@ export const initialState = {
   schedule: { loading: true },
   teamGames: { loading: true },
   scoresDate: moment().format('YYYY-MM-DD'),
+  teamComments: { loading: true }
 };
 
 const nbaScoresReducer = (state = initialState, action) => {
@@ -29,6 +30,15 @@ const nbaScoresReducer = (state = initialState, action) => {
     case 'FETCH_SCHEDULE_ERROR':
       return ({ ...state, schedule: action.error })
 
+    case 'FETCH_TEAM_COMMENTS_PENDING':
+      return ({ ...state, teamComments: { loading: true } })
+  
+    case 'FETCH_TEAM_COMMENTS_SUCCESS':
+      return ({ ...state, teamComments: action.teamComments })
+  
+    case 'FETCH_TEAM_COMMENTS_ERROR':
+      return ({ ...state, teamComments: action.error })
+
     case 'FETCH_TEAM_GAMES_PENDING':
       return ({ ...state, teamGames: { loading: true } })
 
@@ -37,6 +47,15 @@ const nbaScoresReducer = (state = initialState, action) => {
 
     case 'FETCH_TEAM_GAMES_ERROR':
       return ({ ...state, teamGames: action.error })
+
+    case 'POST_COMMENT_PENDING':
+      return ({ ...state, teamComments: { loading: true } })
+
+    case 'POST_COMMENT_SUCCESS':
+      return ({ ...state, teamComments: action.teamComments })
+
+    case 'POST_COMMENT_ERROR':
+      return ({ ...state, teamComments: action.error })
 
     case 'SET_SCORES_DATE':
       return ({ ...state, scoresDate: action.scoresDate })

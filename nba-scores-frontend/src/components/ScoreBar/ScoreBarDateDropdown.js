@@ -16,10 +16,13 @@ class ScoreBarDateDropdown extends React.Component {
         <select 
           value={this.props.scoresDate}
           onChange={(event) => {
+            console.log('a')
             this.props.dispatch(setScoresDate(event.target.value))
             this.props.dispatch(fetchGames(event.target.value))
+            console.log('g')
           }}
         >
+
           <option value={moment().subtract(1, 'days').format('YYYY-MM-DD')}>
             {moment().subtract(1, 'days').format('MMM Do')}
           </option>

@@ -16,11 +16,11 @@ class Schedule extends React.Component {
     if (this.props.schedule.loading) {
       return (<div>Loading...</div>)
     }
-
+    
     let scheduleDates = []
 
     for (const date in this.props.schedule) {
-      console.log(this.props.schedule[date][0])
+      // console.log(this.props.schedule[date][0])
       let gameDivs = this.props.schedule[date].map((game) => (
         <div key={game.id}>
           <div className="league-schedule-game">

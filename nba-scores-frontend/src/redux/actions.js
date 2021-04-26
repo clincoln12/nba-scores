@@ -35,6 +35,34 @@ export const fetchTeamGamesSuccess = (teamGames) => ({
   teamGames: teamGames
 })
 
+export const fetchTeamCommentsPending = () => ({
+  type: 'FETCH_TEAM_COMMENTS_PENDING'
+})
+
+export const fetchTeamCommentsSuccess = (teamComments) => ({
+  type: 'FETCH_TEAM_COMMENTS_SUCCESS',
+  teamComments: teamComments
+})
+
+export const fetchTeamCommentsError = (error) => ({
+  type: 'FETCH_TEAM_COMMENTS_ERROR',
+  error: error
+})
+
+export const postCommentError = (error) => ({
+  type: 'POST_COMMENT_ERROR',
+  error: error
+})
+
+export const postCommentPending = () => ({
+  type: 'POST_COMMENT_PENDING'
+})
+
+export const postCommentSuccess = (teamComments) => ({
+  type: 'POST_COMMENT_SUCCESS',
+  teamComments: teamComments
+})
+
 export const fetchTeamGamesError = (error) => ({
   type: 'FETCH_TEAM_GAMES_ERROR',
   error: error

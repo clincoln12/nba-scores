@@ -2,6 +2,8 @@ import React from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { fetchTeamGames } from '../../redux/asyncActions';
+import AddComment from '../Comments/AddComment';
+import Comments from '../Comments/Comments';
 import './stylesheets/team.scss';
 
 class Team extends React.Component {
@@ -47,9 +49,17 @@ class Team extends React.Component {
 
   render() {
     return(
+      <>
       <div className="team-schedule-container">
         {this.whatToRender()}
       </div>
+
+      <Comments 
+        teamId={this.getTeamIdFromParam()}
+      />
+
+      <AddComment />
+      </>
     )
   }
 }
